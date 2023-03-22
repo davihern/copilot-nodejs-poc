@@ -11,7 +11,7 @@ const fs = require('fs');
 const server = http.createServer((req, res) => {
 
 
-    //calculate days between two dates
+    
      if (req.url.startsWith('/get')) {
         const { query } = url.parse(req.url, true);
         const { key } = query;
@@ -22,6 +22,7 @@ const server = http.createServer((req, res) => {
             res.end('hello ' + key);
         }
     } else if (req.url.startsWith('/daysBetweenDates')) {
+        //calculate days between two dates
 
         //get dates from querystring
         var queryData = url.parse(req.url, true).query;

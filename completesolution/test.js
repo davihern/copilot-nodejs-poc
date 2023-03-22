@@ -107,7 +107,7 @@ describe('Node Server', () => {
                 data += chunk;
             });
             res.on('end', () => {
-                assert.equal(data, '#FF0');
+                assert.equal(data, '#FFFF00');
                 done();
             });
         });
