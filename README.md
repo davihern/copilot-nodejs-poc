@@ -93,7 +93,7 @@ server is listening on port 3000
 
   1 passing (34ms)
 
-- In the NodeServer.js develop the rest of the methods described in the Exercise
+- In the NodeServer.js develop the rest of the methods described in the Exercise (do not forget to open color.json file in Visual Studio Code, so CoPilot get all the context to make better recommendations)
 - In the Test.js file add the methods to test the funcionality
 - Run the tests to verify that all is working 
 - Open the dockerfile file, and fill it, in order to create a docker container with a node image that can run the web server
