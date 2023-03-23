@@ -4,6 +4,13 @@ Demo project for running a Proof of Concept for Copilot viability
 
 ## Pre-requisites
 
+** CoPilot access **
+
+A 60 day trial can be requested here: https://github.com/github-copilot/signup
+
+** VisualStudio Code **
+
+https://code.visualstudio.com/
 
 **Install Node and npm**
  https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
