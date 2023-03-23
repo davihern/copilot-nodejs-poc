@@ -66,9 +66,13 @@ When the development is completed, we will build a container using Docker
 
 **returnColorCode**
 Receive by querystring a parameter called color
+
 read colors.json file and return the rgba field
+
 get color var from querystring
+
 iterate for each color in colors.json to find the color
+
 return the code.hex field
 
 
