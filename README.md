@@ -1,6 +1,6 @@
-# Proof of Concept for Copilot using Nodejs 
+# GitHub Copilot Activate using Nodejs 
 
-Demo project for running a Proof of Concept for Copilot viability
+Demo project for running labs to evaluate Copilot viability
 
 ## Pre-requisites
 
