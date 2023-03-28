@@ -26,7 +26,7 @@ https://docs.docker.com/engine/install/
 
 ## Goal
 
-The goal of a GitHub Copilot proof of concept is to learn how to use it.
+The goal of a GitHub Copilot Activate is to learn how to use it.
 
  Copilot is an AI-powered code assistant that helps developers write better code faster. It uses machine learning models trained on billions of lines of code to suggest whole lines or entire functions based on the context of what you’re working on. By using Copilot, you can learn how to write better code and improve your productivity.
 
