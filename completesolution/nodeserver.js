@@ -221,6 +221,14 @@ const server = http.createServer((req, res) => {
             res.end(lines.toString());
         });
     }
+    else if (req.url.startsWith('/CalculateMemoryConsumption')) {
+    
+            //return the memory consumption of the process in GB, rounded to 2 decimals
+            var memory = process.memoryUsage().heapUsed / 1024 / 1024;
+
+            res.end(memory.toFixed(2) + " GB");
+
+    }
     else if (req.url.startsWith('/Get')) {
         const { query } = url.parse(req.url, true);
         const { key } = query;

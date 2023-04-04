@@ -159,3 +159,9 @@ Read sample.txt line by line
 Create a promise to read the file line by line, and return a list of lines that contains the word "Fusce"
 
 Return the list of lines
+
+- **/CalculateMemoryConsumption**:
+
+Return the memory consumption of the process in GB, rounded to 2 decimals
+
+
