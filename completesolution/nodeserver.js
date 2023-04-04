@@ -65,6 +65,7 @@ const server = http.createServer((req, res) => {
         else {
             res.end("invalid");
         }
+        
     } else if (req.url.startsWith('/ReturnColorCode')) {
 
         //read colors.json file and return the rgba field
@@ -186,7 +187,7 @@ const server = http.createServer((req, res) => {
         var lines = text.split("\r");
 
         var linesFound = "";
-        for (var i = 0; i < lines.length; i++) {
+        for (var i = 1; i < lines.length; i++) {
             if (lines[i].includes("Fusce")) {
                 linesFound = linesFound + lines[i] + ", ";
             }
@@ -235,10 +236,10 @@ const server = http.createServer((req, res) => {
         var zlib = require('zlib');
 
         var gzip = zlib.createGzip();
-        var inp = fs.createReadStream('sample.txt');
-        var out = fs.createWriteStream('sample.gz');
+        var input = fs.createReadStream('sample.txt');
+        var output = fs.createWriteStream('sample.gz');
 
-        inp.pipe(gzip).pipe(out);
+        input.pipe(gzip).pipe(output);
 
         res.end("sample.gz created");
 
@@ -330,6 +331,8 @@ const server = http.createServer((req, res) => {
 server.listen(3000, () => {
     console.log('server is listening on port 3000');
 });
+
+
 
 
 //write command line to generate package.json

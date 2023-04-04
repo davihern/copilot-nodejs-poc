@@ -176,3 +176,95 @@ Return a random country from the array
 
 Return the country and its iso code
 
+
+## GitHub Copilot Labs exercises
+
+These tasks can be performed with the Copilot labs add-in, currently PREVIEW functionality, expect some bugs.
+
+
+Make sure to install the GitHub Copilot labs extension: https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-labs
+
+Open GitHub Copilot extension to see all the available functionality.
+
+- **Explain**
+
+Select the line that has the regex in the validatePhoneNumber method, in EXPLAIN section click "Ask Copilot". You will see an explanation detailing what does each different notations in the regular expression.
+
+- **Language translation**
+
+Select some source code, like this line:
+
+    var randomCountry = countries[Math.floor(Math.random() * countries.length)];
+
+In "LANGUAGE TRANSLATION" section select python and click "As Copilot" button, you should see new code in python (sometimes you'll need to click twice in the button).
+
+- **Readable**
+
+Select the content of MakeZipFile
+
+In the BRUSHES section, click in "Readable", see how comments are added and also variables that have short names are renamed to a more understandable name.
+
+
+-- **Add Types**
+
+TBD
+
+-- **Fix Bug**
+
+In the exercise, there should be no bugs, since most of the code will be done by CoPilot. We can force some errors and then test the debug functionality.
+
+Force some errors like:
+
+In a for loop change the beginning to (change the 0 for a 1):
+
+    for (var i = 1
+
+select the text and in the "BRUSHES" section press the "Fix Bug" button.
+
+-- **Debug**
+
+Select some lines of text that contains variables, like:
+
+    var queryData = url.parse(req.url, true).query;
+    var color = queryData.color;
+    var colorFound = "not found";
+
+select the text and in the "BRUSHES" section press the "Debug" button.
+
+
+-- **Clean**
+
+TBD
+
+
+-- **List steps**
+
+Select some lines of code that do not have comments and in the  "BRUSHES" section press the "List steps" button.
+
+
+-- **Make robust**
+
+Select some text that comes from input, for example variables that come from querystring:
+
+        var queryData = url.parse(req.url, true).query;
+        var date1 = queryData.date1;
+        var date2 = queryData.date2;
+
+In the  "BRUSHES" section press the "Make robust" button, you will see that additional validation is added.
+
+-- **Chunk**
+
+TBD
+
+-- **Document**
+
+Select some line (e.g. a method or the beggining of the if clause)
+
+    else if (req.url.startsWith('/GetFullTextFile')) 
+
+In the  "BRUSHES" section press the "Document" button, you will see that comments explaining what the code does are added before the line.
+
+
+-- **Test Generation**
+
+TBD
