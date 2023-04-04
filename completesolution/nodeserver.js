@@ -191,6 +191,36 @@ const server = http.createServer((req, res) => {
 
     }
 
+    else if (req.url.startsWith('/GetLineByLinefromtextfile')) {
+    
+        //read sample.txt line by line
+        var lineReader = require('readline').createInterface({
+            input: require('fs').createReadStream('sample.txt')
+        });
+
+        //create a promise to read the file line by line, and return a list of lines that contains the word "Fusce"
+        var promise = new Promise(function (resolve, reject) {
+            var lines = [];
+            lineReader.on('line', function (line) {
+                if (line.includes("Fusce")) {
+                    lines.push(line);
+                }
+            });
+            lineReader.on('close', function () {
+                resolve(lines);
+            });
+        });
+
+        //return the list of lines
+        promise.then(function (lines) {
+            res.end(lines.toString());
+        });
+        
+    
+        
+        
+    }
+
     else {
         res.end('not found');
     }

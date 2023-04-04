@@ -105,6 +105,15 @@ Get the list of files in the current directory
 Return the list of files
 
 
+**GetLineByLinefromtextfile**
+
+Read sample.txt line by line
+
+Create a promise to read the file line by line, and return a list of lines that contains the word "Fusce"
+
+Return the list of lines
+
+
 ## Instructions
 
 - Download to local the exercicefile folder
