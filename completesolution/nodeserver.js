@@ -156,6 +156,30 @@ const server = http.createServer((req, res) => {
 
   
     }
+    //If url equals to ParseUrl
+    else if (req.url.startsWith('/ParseUrl')) {
+
+        //retrieves a parameter from querystring called someurl
+        var queryData = url.parse(req.url, true).query;
+        var someUrl = queryData.someurl;
+
+        //parse the url and return the protocol, host, port, path, querystring and hash
+        var urlObj = new URL(someUrl);
+
+        var protocol = urlObj.protocol;
+        var host = urlObj.host;
+        var port = urlObj.port;
+        var path = urlObj.pathname;
+        var querystring = urlObj.search;
+        var hash = urlObj.hash;
+
+        //return the parsed host
+        res.end("host: " + host );
+
+    }
+
+
+
     else {
         res.end('not found');
     }

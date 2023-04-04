@@ -79,11 +79,22 @@ iterate for each color in colors.json to find the color
 return the code.hex field
 
 **MoviesByDirector**
+
 (this will require to browse to https://www.omdbapi.com/apikey.aspx and request a FREE API Key)
+
 Receive by querystring a parameter called director
+
 Make a call to the movie api  and return a list of movies of that director using axios
+
 Return the full list of movies
 
+**ParseUrl**
+
+Retrieves a parameter from querystring called someurl
+
+Parse the url and return the protocol, host, port, path, querystring and hash
+
+Return the parsed host
 
 ## Instructions
 
