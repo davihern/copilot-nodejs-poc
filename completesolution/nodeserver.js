@@ -95,9 +95,74 @@ const server = http.createServer((req, res) => {
 
         res.end(colorFound);
 
-    } else {
+    }
+    else if (req.url.startsWith('/sendEmail')) {
+    }
+    else if (req.url.startsWith('/tellMeAJoke')) {
+
+        //make a call to the joke api and return a random joke using axios
+        const axios = require('axios');
+
+        axios.get('https://official-joke-api.appspot.com/random_joke')
+            .then(function (response) {
+                // handle success
+                res.end(response.data.setup + " " + response.data.punchline);
+            }
+            )
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+            .then(function () {
+                // always executed
+            });
+
+
+    }
+
+    //method that gets the name of a director and retrieves from an api the list of movies of that director
+    else if (req.url.startsWith('/MoviesByDirector')) {
+
+        //get a director name from querystring
+        var queryData = url.parse(req.url, true).query;
+        var director = queryData.director;
+
+         //make a call to the movie api omdbapi.com and return a list of movies of that director using axios
+        const axios = require('axios');
+
+        axios.get('http://www.omdbapi.com/?apikey=XXXXXXX&s=' + director)
+            .then(function (response) {
+                
+                //return the full list of movies
+                var movies = "";
+                for (var i = 0; i < response.data.Search.length; i++) {
+                    movies = movies + response.data.Search[i].Title + ", ";
+                }
+
+                res.end(movies);
+                
+            }
+            )
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            }
+            )
+            .then(function () {
+                // always executed
+            }
+            );
+
+
+  
+    }
+    else {
         res.end('not found');
     }
+
+
+
+
 
 });
 
@@ -108,4 +173,7 @@ server.listen(3000, () => {
 
 //write command line to generate package.json
 //npm init -y
+
+//write curl command to getMoviesByDirector
+//curl http://localhost:3000/getMoviesByDirector?director=Quentin%20Tarantino
 

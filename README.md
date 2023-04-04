@@ -18,7 +18,10 @@ https://code.visualstudio.com/
 
 **Install mocha**
 
-run npm install --global mocha
+run:
+
+ npm install --global mocha
+ npm install axios
 
 **Install Docker**
 
@@ -74,6 +77,12 @@ get color var from querystring
 iterate for each color in colors.json to find the color
 
 return the code.hex field
+
+**MoviesByDirector**
+(this will require to browse to https://www.omdbapi.com/apikey.aspx and request a FREE API Key)
+Receive by querystring a parameter called director
+Make a call to the movie api  and return a list of movies of that director using axios
+Return the full list of movies
 
 
 ## Instructions
