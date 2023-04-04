@@ -177,8 +177,19 @@ const server = http.createServer((req, res) => {
         res.end("host: " + host );
 
     }
+//if url contains listFiles in current directory
+    else if (req.url.startsWith('/listFiles')) {
 
+        //get the current directory
+        var currentDir = __dirname;
 
+        //get the list of files in the current directory
+        var files = fs.readdirSync(currentDir);
+
+        //return the list of files
+        res.end(files.toString());
+
+    }
 
     else {
         res.end('not found');

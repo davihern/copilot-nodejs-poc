@@ -96,6 +96,15 @@ Parse the url and return the protocol, host, port, path, querystring and hash
 
 Return the parsed host
 
+**listFiles**
+
+Get the current directory
+
+Get the list of files in the current directory
+
+Return the list of files
+
+
 ## Instructions
 
 - Download to local the exercicefile folder
