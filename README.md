@@ -164,4 +164,6 @@ Return the list of lines
 
 Return the memory consumption of the process in GB, rounded to 2 decimals
 
+- **/MakeZipFile**:
 
+Using zlib create a zip file called sample.gz that contains sample.txt
