@@ -12,16 +12,7 @@ const server = http.createServer((req, res) => {
 
 
     
-     if (req.url.startsWith('/get')) {
-        const { query } = url.parse(req.url, true);
-        const { key } = query;
-
-        if (!key) {
-            res.end('key not passed');
-        } else {
-            res.end('hello ' + key);
-        }
-    } else if (req.url.startsWith('/daysBetweenDates')) {
+      if (req.url.startsWith('/DaysBetweenDates')) {
         //calculate days between two dates
 
         //get dates from querystring
@@ -39,7 +30,7 @@ const server = http.createServer((req, res) => {
         //convert to days and return
         res.end(Math.round(difference_ms / 86400000) + " days");
 
-    }     else if (req.url.startsWith('/validatephonenumber')) {
+    }     else if (req.url.startsWith('/Validatephonenumber')) {
 
         //get phoneNumber var from querystring
         var queryData = url.parse(req.url, true).query;
@@ -57,7 +48,7 @@ const server = http.createServer((req, res) => {
         else {
             res.end("invalid");
         }
-    } else if (req.url.startsWith('/validateSpanishDNI')) {
+    } else if (req.url.startsWith('/ValidateSpanishDNI')) {
         var queryData = url.parse(req.url, true).query;
         var dni = queryData.dni;
 
@@ -74,7 +65,7 @@ const server = http.createServer((req, res) => {
         else {
             res.end("invalid");
         }
-    } else if (req.url.startsWith('/returnColorCode')) {
+    } else if (req.url.startsWith('/ReturnColorCode')) {
 
         //read colors.json file and return the rgba field
         var colors = fs.readFileSync('colors.json', 'utf-8');
@@ -96,9 +87,9 @@ const server = http.createServer((req, res) => {
         res.end(colorFound);
 
     }
-    else if (req.url.startsWith('/sendEmail')) {
+    else if (req.url.startsWith('/SendEmail')) {
     }
-    else if (req.url.startsWith('/tellMeAJoke')) {
+    else if (req.url.startsWith('/TellMeAJoke')) {
 
         //make a call to the joke api and return a random joke using axios
         const axios = require('axios');
@@ -116,8 +107,6 @@ const server = http.createServer((req, res) => {
             .then(function () {
                 // always executed
             });
-
-
     }
 
     //method that gets the name of a director and retrieves from an api the list of movies of that director
@@ -178,7 +167,7 @@ const server = http.createServer((req, res) => {
 
     }
 //if url contains listFiles in current directory
-    else if (req.url.startsWith('/listFiles')) {
+    else if (req.url.startsWith('/ListFiles')) {
 
         //get the current directory
         var currentDir = __dirname;
@@ -190,8 +179,24 @@ const server = http.createServer((req, res) => {
         res.end(files.toString());
 
     }
+    else if (req.url.startsWith('/GetFullTextFile')) {
 
-    else if (req.url.startsWith('/GetLineByLinefromtextfile')) {
+        //read sample.txt and return lines that contains the word "Fusce"
+        var text = fs.readFileSync('sample.txt', 'utf-8');
+        var lines = text.split("\r");
+
+        var linesFound = "";
+        for (var i = 0; i < lines.length; i++) {
+            if (lines[i].includes("Fusce")) {
+                linesFound = linesFound + lines[i] + ", ";
+            }
+        }
+
+        res.end(linesFound);
+
+
+    }
+    else if (req.url.startsWith('/GetLineByLinefromtTextFile')) {
     
         //read sample.txt line by line
         var lineReader = require('readline').createInterface({
@@ -215,14 +220,19 @@ const server = http.createServer((req, res) => {
         promise.then(function (lines) {
             res.end(lines.toString());
         });
-        
-    
-        
-        
     }
+    else if (req.url.startsWith('/Get')) {
+        const { query } = url.parse(req.url, true);
+        const { key } = query;
 
+        if (!key) {
+            res.end('key not passed');
+        } else {
+            res.end('hello ' + key);
+        }
+    } 
     else {
-        res.end('not found');
+        res.end('Called method not found');
     }
 
 
