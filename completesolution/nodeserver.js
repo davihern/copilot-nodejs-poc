@@ -243,6 +243,70 @@ const server = http.createServer((req, res) => {
         res.end("sample.gz created");
 
     }
+    else if (req.url.startsWith('/RandomEuropeanCountry')) {
+
+        //make an array of european countries and its iso codes
+        var countries = [
+            { country: "Italy", iso: "IT" },
+            { country: "France", iso: "FR" },
+            { country: "Spain", iso: "ES" },
+            { country: "Germany", iso: "DE" },
+            { country: "United Kingdom", iso: "GB" },
+            { country: "Greece", iso: "GR" },
+            { country: "Portugal", iso: "PT" },
+            { country: "Romania", iso: "RO" },
+            { country: "Bulgaria", iso: "BG" },
+            { country: "Croatia", iso: "HR" },
+            { country: "Czech Republic", iso: "CZ" },
+            { country: "Denmark", iso: "DK" },
+            { country: "Estonia", iso: "EE" },
+            { country: "Finland", iso: "FI" },
+            { country: "Hungary", iso: "HU" },
+            { country: "Ireland", iso: "IE" },
+            { country: "Latvia", iso: "LV" },
+            { country: "Lithuania", iso: "LT" },
+            { country: "Luxembourg", iso: "LU" },
+            { country: "Malta", iso: "MT" },
+            { country: "Netherlands", iso: "NL" },
+            { country: "Poland", iso: "PL" },
+            { country: "Slovakia", iso: "SK" },
+            { country: "Slovenia", iso: "SI" },
+            { country: "Sweden", iso: "SE" },
+            { country: "Belgium", iso: "BE" },
+            { country: "Austria", iso: "AT" },
+            { country: "Switzerland", iso: "CH" },
+            { country: "Cyprus", iso: "CY" },
+            { country: "Iceland", iso: "IS" },
+            { country: "Norway", iso: "NO" },
+            { country: "Albania", iso: "AL" },
+            { country: "Andorra", iso: "AD" },
+            { country: "Armenia", iso: "AM" },
+            { country: "Azerbaijan", iso: "AZ" },
+            { country: "Belarus", iso: "BY" },
+            { country: "Bosnia and Herzegovina", iso: "BA" },
+            { country: "Georgia", iso: "GE" },
+            { country: "Kazakhstan", iso: "KZ" },
+            { country: "Kosovo", iso: "XK" },
+            { country: "Liechtenstein", iso: "LI" },
+            { country: "Macedonia", iso: "MK" },
+            { country: "Moldova", iso: "MD" },
+            { country: "Monaco", iso: "MC" },
+            { country: "Montenegro", iso: "ME" },
+            { country: "Russia", iso: "RU" },
+            { country: "San Marino", iso: "SM" },
+            { country: "Serbia", iso: "RS" },
+            { country: "Turkey", iso: "TR" },
+            { country: "Ukraine", iso: "UA" },
+            { country: "Vatican City", iso: "VA" }
+        ];
+
+        //return a random country from the array
+        var randomCountry = countries[Math.floor(Math.random() * countries.length)];
+
+        //return the country and its iso code
+        res.end(randomCountry.country + " " + randomCountry.iso);
+
+    }
     else if (req.url.startsWith('/Get')) {
         const { query } = url.parse(req.url, true);
         const { key } = query;

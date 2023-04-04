@@ -167,3 +167,12 @@ Return the memory consumption of the process in GB, rounded to 2 decimals
 - **/MakeZipFile**:
 
 Using zlib create a zip file called sample.gz that contains sample.txt
+
+- **/RandomEuropeanCountry**:
+
+Make an array of european countries and its iso codes
+
+Return a random country from the array
+
+Return the country and its iso code
+
