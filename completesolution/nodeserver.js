@@ -229,6 +229,20 @@ const server = http.createServer((req, res) => {
             res.end(memory.toFixed(2) + " GB");
 
     }
+    else if (req.url.startsWith('/MakeZipFile')) {
+
+        //using zlib create a zip file called sample.gz that contains sample.txt
+        var zlib = require('zlib');
+
+        var gzip = zlib.createGzip();
+        var inp = fs.createReadStream('sample.txt');
+        var out = fs.createWriteStream('sample.gz');
+
+        inp.pipe(gzip).pipe(out);
+
+        res.end("sample.gz created");
+
+    }
     else if (req.url.startsWith('/Get')) {
         const { query } = url.parse(req.url, true);
         const { key } = query;
