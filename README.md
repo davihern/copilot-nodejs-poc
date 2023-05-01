@@ -34,7 +34,7 @@ Choose one of the two options (Node or .net) based on your preferred programming
 
 - Option A (Node):
 
-Follow this instructions to set up the project and then continue with the instructions below (Exercise section): https://github.com/davihern/copilot-nodejs-poc/SetupNodeproject.md
+Follow this instructions to set up the project and then continue with the instructions below (Exercise section): https://github.com/davihern/copilot-nodejs-poc/blob/main/SetupNodeproject.md
 
 - Option B (.net):
 
