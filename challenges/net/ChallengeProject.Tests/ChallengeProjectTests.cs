@@ -13,14 +13,10 @@ namespace ChallengeProject.Tests
             _challenge = new Challenge();
         }
 
-
-
         [Fact]
-        public void ApplicationInsightsTest()
+        public void InitConnection()
         {
-            var result = _challenge.AddCustomEventUsingApplicationInsights();
-
-            Assert.True(result, $"Result should be true");
+          _challenge.InitConnection();
         }
     }
 }
